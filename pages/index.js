@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react'
+import { useRouter } from 'next/router'
 import { CSSTransition } from 'react-transition-group'
 import todoContext from '../context/todo/todoContext'
 import authContext from '../context/auth/authContext'
@@ -8,14 +9,16 @@ import { MDBContainer, MDBRow } from 'mdbreact'
 
 const Todo = (props) => {
 
+    const router = useRouter()
+
     const TodoContext = useContext(todoContext)
     const { list, getList } = TodoContext
+
     const AuthContext = useContext(authContext)
 	const { logout } = AuthContext
-    const token = localStorage.getItem('token')
 
+    const token = localStorage.getItem('token')
     useEffect(() => {
-        console.log(token)
         if (router.isReady && token === null)
             router.push('/login')
         getList(token)
