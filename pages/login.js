@@ -14,7 +14,7 @@ const Login = (props) => {
         if (router.isReady && isAuthenticated)
             router.push('/')
         // eslint-disable-next-line
-    }, [router, isAuthenticated])
+    }, [router.isReady, isAuthenticated])
 
     const [user, setUser] = useState({
         email: '',

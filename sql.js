@@ -6,11 +6,11 @@ class SQLParser {
     static isConnected = false
     static isConnecting = null
     static conn = null
-    static connInfo = production ? {
+    static connInfo = this.production ? {
         connectionLimit: 128,
         host    : '209.222.20.135',
         user    : 'todolist',
-        password: '#1215 - Cannot add foreign key constraint',
+        password: 'TQ*BcZ%Y#3i2U42mce$5Yak$tiox&9zi@RYEyT#NtmSt2jjjXuFgnPF!KcW^Wx$X',
         database: 'todolist',
         charset : 'latin1_swedish_ci'
     } : {

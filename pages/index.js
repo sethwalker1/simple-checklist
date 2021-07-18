@@ -16,12 +16,11 @@ const Todo = (props) => {
 
     useEffect(() => {
         console.log(token)
-        if(token === null){
-            props.history.push('/login')
-        }
+        if (router.isReady && token === null)
+            router.push('/login')
         getList(token)
         // eslint-disable-next-line
-    }, [props.history])
+    }, [router.isReady, props.history])
 
     const onLogout = () => {
 		logout()
