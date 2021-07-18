@@ -27,7 +27,7 @@ const Todo = (props) => {
 
     const onLogout = () => {
 		logout()
-		window.location.href = "http://localhost:3000/login"
+        router.push('/login')
 	}
 
     if (list === null) {
