@@ -1,0 +1,44 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Poppins, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-field input::placeholder, textarea::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.custom-img {
+  /* min-width: unset !important;
+  max-width: unset !important;
+  min-height: unset !important;
+  max-height: unset !important;
+  object-fit: contain;
+  width: 60% !important;
+  height: unset !important;
+  inset: unset !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  z-index: 0 !important; */
+  width: 100%;
+}

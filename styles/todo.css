@@ -1,0 +1,77 @@
+.todo-container {
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 1rem;
+    width: 100%;
+    max-height: 100vh;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+}
+
+.todo-container::before {
+    content: "";
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #04befe, #4481eb );
+    top: -40%;
+    left: -60%;
+}
+
+.todo-container::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #4481eb, #04befe);
+    bottom: -50%;
+    left: -10%;
+    z-index: 5;
+}
+
+.loser {
+    object-fit: contain;
+    max-height: 250px;
+}
+
+.image-container {
+    height: 25%;
+    z-index: 6;
+}
+
+.image-container > img {
+    height: 100%;
+}
+
+.options {
+    top: 0;
+    left: 0;
+    padding-left: 4rem;
+    z-index: 6;
+    color: #fff;
+}
+
+.options h3 {
+    font-weight: 500;
+}
+
+.todo-form {
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    z-index: 7;
+}
+
+.login-button.transparent:hover {
+    color: #333;
+    border-color: #333;
+}
