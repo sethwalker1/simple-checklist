@@ -6,7 +6,14 @@ class SQLParser {
     static isConnected = false
     static isConnecting = null
     static conn = null
-    static connInfo = {
+    static connInfo = production ? {
+        connectionLimit: 128,
+        host    : '209.222.20.135',
+        user    : 'todolist',
+        password: '#1215 - Cannot add foreign key constraint',
+        database: 'todolist',
+        charset : 'latin1_swedish_ci'
+    } : {
         connectionLimit: 128,
         host    : 'localhost',
         user    : 'root',
