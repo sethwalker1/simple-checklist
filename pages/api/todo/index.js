@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     } = req
     console.log({ name, email, description })
 
-    let r;
+    let r
     switch (method) {
         case "POST":
             r = await sql.query(`

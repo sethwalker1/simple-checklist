@@ -17,7 +17,7 @@ export default async function handler(req, res) {
                 LIMIT 1`,
                 [email])
 
-            if (r) return res.status(400).send("A user already exists with the specified email ID!")
+            if (r) return res.json({ error: 'A user already exists with the specified email ID!' })
 
             const salt = await bcrypt.genSalt(10)
             const encrypted_password = await bcrypt.hash(password, salt)

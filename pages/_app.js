@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import '../styles/bootstrap.min.css'
-import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/all.css'
 import '../styles/auth.css'
 import '../styles/todo.css'
 import '../components/ActiveLink'

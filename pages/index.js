@@ -15,15 +15,15 @@ const Todo = (props) => {
     const { list, getList } = TodoContext
 
     const AuthContext = useContext(authContext)
-	const { logout } = AuthContext
+	const { logout, isAuthenticated } = AuthContext
 
     const token = localStorage.getItem('token')
     useEffect(() => {
-        if (router.isReady && token === null)
+        if (router.isReady && !isAuthenticated)
             router.push('/login')
         getList(token)
         // eslint-disable-next-line
-    }, [router.isReady, props.history])
+    }, [isAuthenticated, router.isReady, props.history])
 
     const onLogout = () => {
 		logout()

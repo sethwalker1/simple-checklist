@@ -16,11 +16,11 @@ export default async function handler(req, res) {
                 LIMIT 1`,
                 [email])
 
-            if (!r) return res.status(200).send("Incorrect username or password!")
+            if (!r) return res.json({ error: 'An account with that email does not exist!' })
             if (await bcrypt.compare(password, r.password))
                 return res.send(Buffer.from(email).toString('base64'))
 
-            res.sendStatus(500).end()
+            res.json({ error: 'Incorrect password!' })
             break
         default:
             res.setHeader('Allow', ['POST'])

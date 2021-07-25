@@ -5,25 +5,27 @@ import authReducer from './authReducer'
 import { LOGIN_USER, REGISTER_USER, LOGOUT } from  '../types'
 
 const AuthState = (props) => {
-    let email = localStorage.getItem('token')
+    let token = localStorage.getItem('token')
     const initialState = {
-        token: email,
-        isAuthenticated: email === null ? false : true
+        token,
+        isAuthenticated: !token || token === 'null' ? false : true
     }
 
     const [state, dispatch] = useReducer(authReducer, initialState)
 
-    // Register User: 
+    // Register User:
     const register = async formData => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
         try {
+            const res = await axios.post('/api/auth/register', formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
 
-            const res = await axios.post('/api/auth/register', formData, config)
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
 
             dispatch({
                 type: REGISTER_USER,
@@ -37,14 +39,17 @@ const AuthState = (props) => {
 
     // Login User:
     const login = async formData => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
         try {
-            const res = await axios.post('/api/auth/login', formData, config)
+            const res = await axios.post('/api/auth/login', formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
 
             dispatch({
                 type: LOGIN_USER,

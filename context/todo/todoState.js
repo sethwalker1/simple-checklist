@@ -16,6 +16,10 @@ const TodoState = (props) => {
     const getList = async id => {
         try {
             const res = await axios.get(`/api/todo/${id}`)
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
 
             dispatch({
                 type: GET_LIST,
@@ -29,14 +33,17 @@ const TodoState = (props) => {
 
     // Add an item to the list:
     const addItem = async formData => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
         try {
-            const res = await axios.post('/api/todo', formData, config)
+            const res = await axios.post('/api/todo', formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
 
             dispatch({
                 type: ADD_ITEM,
@@ -50,14 +57,17 @@ const TodoState = (props) => {
 
     // Edit an item in the list:
     const editItem = async formData => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
         try {
-            const res = await axios.put('/api/todo', formData, config)
+            const res = await axios.put('/api/todo', formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
 
             dispatch({
                 type: EDIT_ITEM,
@@ -73,6 +83,11 @@ const TodoState = (props) => {
     const deleteItem = async (id, user) => {
         try {
             const res = await axios.delete(`/api/todo/${id}/${user}`)
+            if (res.data.error) {
+                alert(res.data.error)
+                throw new Error(res.data.error)
+            }
+
             dispatch({
                 type: DELETE_ITEM,
                 payload: id
